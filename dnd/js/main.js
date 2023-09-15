@@ -8,12 +8,20 @@ function getFetch(){
   fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
-       console.log(data)
-       document.querySelector('h3').innerText = data.choice[0].material
-       document.querySelector('h4').innerText = data.choice.subclasses[0]
+       console.log(data.subclasses)
+
+       data.subclasses.forEach(obj =>{
+        console.log(obj.name)
+        //CREAT LI
+        const li = document.createElement('li') 
+        //ADD TEXT TO LI
+        li.textContent= obj.name
+        //APPEND THE LI TO THE UL
+        document.querySelector('ul').appendChild(li)
+        })
 
 
-      })
+    })
       .catch(err => {
           console.log(`error ${err}`)
       });
