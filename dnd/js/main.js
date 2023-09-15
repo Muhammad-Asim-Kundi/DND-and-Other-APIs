@@ -1,8 +1,9 @@
 //Example fetch using DnD5eAPI - place subclasses in ul
+
 document.querySelector('button').addEventListener('click', getFetch)
 
 function getFetch(){
-  const choice = document.querySelector('input').value
+  const choice = document.querySelector('input').value //must be used inside function to take user value because on page load when it is outside the function it get only null value
   const url = `https://www.dnd5eapi.co/api/spells/${choice}`
 
   fetch(url)
